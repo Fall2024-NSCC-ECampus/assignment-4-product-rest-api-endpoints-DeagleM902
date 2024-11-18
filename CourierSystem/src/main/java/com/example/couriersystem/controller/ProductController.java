@@ -47,6 +47,8 @@ public class ProductController {
             product.setDescription(productDetails.getDescription());
             product.setPrice(productDetails.getPrice());
             product.setQuantity(productDetails.getQuantity());
+
+            productRepository.save(product);
             return ResponseEntity.ok(product);
         }).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
